@@ -7,7 +7,9 @@
     "start": "nodemon --watch backend --exec babel-node backend/server.js",
     "build": "del -rf dist && babel backend -d dist && cd frontend && npm install && npm run build",
     "serve": "node dist/server.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "heroku-prebuild": "cd frontend && npm install --dev",
+    "heroku-postbuild": "npm run build && cd frontend && npm install && npm run build"
   },
   "author": "",
   "license": "ISC",
